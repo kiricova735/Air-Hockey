@@ -50,10 +50,29 @@ namespace Air_Hockey
         int goalWidth = 10;
         int goalHeight = 180;
 
+        int centreLineX = 400;
+        int centreLineY = 50;
+        int centreLineWidth = 5;
+        int centreLineHeight = 360;
+
+        int centreCircleX = 325;
+        int centreCircleY = 160;
+        int centreCircleWidth = 150;
+        int centreCircleHeight = 150;
+
         int topBorderX = 0;
         int topBorderY = 50;
-        int topBorderWidth = 800;
-        int topBorderHeight = 10;
+        int bottomBorderX = 0;
+        int bottomBorderY = 400;
+
+        int longBorderWidth = 800;
+        int longBorderHeight = 10;
+
+        int shortLeftBorderX = 0;
+      
+
+        int shortBorderWidth = 10;
+        int shortBorderHeight = 90;
 
         bool wDown = false;
         bool sDown = false;
@@ -80,10 +99,10 @@ namespace Air_Hockey
         private void Form1_Paint(object sender, PaintEventArgs e)
         {   
             //center line
-            e.Graphics.DrawRectangle(redPen, 400, 50, 5, 360);
-            e.Graphics.FillRectangle(redBrush, 400, 50, 5, 360);
+            e.Graphics.DrawRectangle(redPen, centreLineX, centreLineY, centreLineWidth, centreLineHeight);
+            e.Graphics.FillRectangle(redBrush, centreLineX, centreLineY, centreLineWidth, centreLineHeight);
             //center circle
-            e.Graphics.DrawEllipse(bigRedPen, 325, 160, 150, 150);           
+            e.Graphics.DrawEllipse(bigRedPen, centreCircleX, centreCircleY, centreCircleWidth, centreCircleHeight);           
             //player 1 stick
             e.Graphics.DrawEllipse(blackPen, stick1X, stick1Y, stickWidth, stickHeight);
             e.Graphics.FillEllipse(blackBrush, stick1X, stick1Y, stickWidth, stickHeight);
@@ -94,15 +113,15 @@ namespace Air_Hockey
             e.Graphics.DrawEllipse(maroonPen, puckX, puckY, puckWidth, puckHeight);
             e.Graphics.FillEllipse(maroonBrush, puckX, puckY, puckWidth, puckHeight);
             //top border
-            e.Graphics.DrawRectangle(redPen, topBorderX, topBorderY, topBorderWidth, topBorderHeight);
-            e.Graphics.FillRectangle(redBrush, topBorderX, topBorderY, topBorderWidth, topBorderHeight);
+            e.Graphics.DrawRectangle(redPen, topBorderX, topBorderY, longBorderWidth, longBorderHeight);
+            e.Graphics.FillRectangle(redBrush, topBorderX, topBorderY, longBorderWidth, longBorderHeight);
             //bottom border
-            e.Graphics.DrawRectangle(redPen, 0, 400, 800, 10);
-            e.Graphics.FillRectangle(redBrush, 0, 400, 800, 10);
-            //bottom left net border
+            e.Graphics.DrawRectangle(redPen, bottomBorderX, bottomBorderY, longBorderWidth, longBorderHeight);
+            e.Graphics.FillRectangle(redBrush, bottomBorderX, bottomBorderY, longBorderWidth, longBorderHeight);
+            //top left net border
             e.Graphics.DrawRectangle(redPen, 0, 50, 10, 90);
             e.Graphics.FillRectangle(redBrush, 0, 50, 10, 90);
-            //top left net border
+            //bottom left net border
             e.Graphics.DrawRectangle(redPen, 0, 320, 10, 90);
             e.Graphics.FillRectangle(redBrush, 0, 320, 10, 90);
             //bottom right net border
